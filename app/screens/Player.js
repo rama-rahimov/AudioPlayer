@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React,{useContext, useEffect} from "react";
 import { View, StyleSheet, Text, Dimensions } from 'react-native';
 import Screen from "../components/Screen";
 import color from "../../misc/color";
@@ -17,6 +17,12 @@ const Player = () => {
      }
      return 0;
     }
+
+    useEffect(() => {
+    context.loadPreviousAudio();
+    }, []);
+
+    if(!context.currentAudio) return null;
     return <Screen>
      <View style={styles.container}>
       <Text style={styles.audioCount}>{context.currentAudioIndex + 1} / {context.totalAudioCount}</Text>
