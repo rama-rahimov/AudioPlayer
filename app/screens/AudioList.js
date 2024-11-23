@@ -59,7 +59,7 @@ export class AudioList extends  Component {
                        playbackDuration: status.durationMillis
                    })
                }
-                console.log({statusOnly:status})
+                console.log({statusOnly:playbackObj})
                if(this.context.playbackPosition >= this.context.playbackDuration){
                    const nextAudioIndex = this.context.currentAudioIndex + 1;
                    const audio = this.context.audioFiles[nextAudioIndex];

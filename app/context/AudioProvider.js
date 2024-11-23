@@ -18,7 +18,9 @@ export class AudioProvider extends Component {
             isPlaying: false,
             currentAudioIndex: null,
             playbackPosition: null,
-            playbackDuration: null
+            playbackDuration: null,
+            isEnabled: false,
+            sound:1
         }
         this.totalAudioCount = 0;
     }
@@ -120,7 +122,10 @@ export class AudioProvider extends Component {
             isPlaying,
             currentAudioIndex,
             playbackPosition,
-            playbackDuration} = this.state;
+            playbackDuration,
+            sound,
+            isEnabled
+        } = this.state;
         if(permissionError) return <View style={{
             flex:1,
             justifyContent:'center',
@@ -142,7 +147,9 @@ export class AudioProvider extends Component {
             playbackPosition,
             playbackDuration,
             totalAudioCount: this.totalAudioCount,
-            loadPreviousAudio: this.loadPreviousAudio
+            loadPreviousAudio: this.loadPreviousAudio,
+            sound,
+            isEnabled
         }}>
          {this.props.children}
         </AudioContext.Provider>
